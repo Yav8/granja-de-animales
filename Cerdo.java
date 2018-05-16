@@ -29,7 +29,7 @@ public class Cerdo extends Mamifero {
      */
     @Override
     public void emitirSonidoCaracteristico() {
-        System.out.println("Ã‘oinq, Ã±oinq");
+        System.out.println("Ñoinq, ñoinq");
     }
     
     /**
