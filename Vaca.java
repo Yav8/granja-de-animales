@@ -5,7 +5,7 @@
  * @author Javier de Cea Dominguez.
  * @version 12-05-2018.
  */
-public class Vaca extends Animal {
+public class Vaca extends Mamifero {
     private static final int PESO_INICIAL = 25;
     
     /**
@@ -22,7 +22,6 @@ public class Vaca extends Animal {
     @Override
     public void comer() {
         super.comer();
-        super.addPeso(2);
     }
     
     /**

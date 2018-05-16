@@ -5,7 +5,7 @@
  * @author Javier de Cea Dominguez.
  * @version 12-05-2018.
  */
-public class Pollo extends Animal {
+public class Pollo extends Ave {
     private static final int PESO_INICIAL = 1;
     
     /**
@@ -22,7 +22,6 @@ public class Pollo extends Animal {
     @Override
     public void comer() {
         super.comer();
-        super.addPeso(1);
     }
     
     /**

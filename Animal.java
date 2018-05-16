@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * La clase Animal contiene informacion comun asociada a los 
  * diferentes tipos de animales.
@@ -9,9 +11,14 @@ public abstract class Animal {
     private static final int PUNTOS_DE_VIDA_INICIALES = 100;
     private int puntosDeVida;
     private int peso;
+    private boolean modificadoGeneticamente;
     
     /**
      * Constructor para objetos de la clase Animal.
+     * 
+     * @param peso El peso del animal.
+     * @param modificadoGeneticamente Indica si el animal 
+     *        esta modificado geneticamente.
      */
     public Animal(int peso) {
         puntosDeVida = PUNTOS_DE_VIDA_INICIALES;
@@ -22,7 +29,13 @@ public abstract class Animal {
      * Permite al animal comer.
      */
     public void comer() {
-        puntosDeVida -= 10;
+        Random aleatorio = new Random();
+        if (modificadoGeneticamente) {
+            puntosDeVida -= 10;
+        }
+        else {
+            puntosDeVida -= 10;
+        }
     }
     
     /**
@@ -75,5 +88,15 @@ public abstract class Animal {
      */
     public void aumentarPuntosDeVida(int numero) {
         puntosDeVida += numero;
+    }
+    
+    /**
+     * Devuelve si el animal esta modificado geneticamente o no.
+     * 
+     * @return Devuelve un booleano que indica si el animal 
+     * esta modificado genéticamente o no.
+     */
+    public boolean getModificadoGeneticamente() {
+        return modificadoGeneticamente;
     }
 }
