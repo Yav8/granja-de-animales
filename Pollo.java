@@ -10,9 +10,12 @@ public class Pollo extends Ave {
     
     /**
      * Constructor para objetos de la clase Pollo.
+     * 
+     * @param modificadoGeneticamente Indica si el animal esta modificado
+     *        geneticamente.
      */
-    public Pollo() {
-        super(PESO_INICIAL);
+    public Pollo(boolean modificadoGeneticamente) {
+        super(PESO_INICIAL, modificadoGeneticamente);
     }
     
     /**
@@ -60,6 +63,6 @@ public class Pollo extends Ave {
      */
     @Override
     public void vacunar() {
-        super.aumentarPuntosDeVida(10);
+        super.setPuntosDeVida(10);
     }
 }

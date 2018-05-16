@@ -11,8 +11,8 @@ public class Cerdo extends Mamifero {
     /**
      * Constructor para objetos de la clase Cerdo.
      */
-    public Cerdo() {
-        super(PESO_INICIAL);
+    public Cerdo(int calidadDeRaza) {
+        super(PESO_INICIAL, calidadDeRaza);
     }
     
     /**
@@ -60,6 +60,6 @@ public class Cerdo extends Mamifero {
      */
     @Override
     public void vacunar() {
-        super.aumentarPuntosDeVida(20);
+        super.setPuntosDeVida(20);
     }
 }

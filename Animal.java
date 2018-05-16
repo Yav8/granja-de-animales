@@ -1,4 +1,4 @@
-import java.util.Random;
+
 
 /**
  * La clase Animal contiene informacion comun asociada a los 
@@ -11,6 +11,7 @@ public abstract class Animal {
     private static final int PUNTOS_DE_VIDA_INICIALES = 100;
     protected int puntosDeVida;
     protected int peso;
+
     
     /**
      * Constructor para objetos de la clase Animal.
@@ -27,9 +28,7 @@ public abstract class Animal {
     /**
      * Permite al animal comer.
      */
-    public void comer() {
-        puntosDeVida -= 10;
-    }
+    public abstract void comer();
     
     /**
      * El pollo emite su sonido caracteristico.
@@ -79,7 +78,7 @@ public abstract class Animal {
      * @param numero El numero de puntos de vida que se sumaran 
      * o restaran a los actuales.
      */
-    public void aumentarPuntosDeVida(int numero) {
+    public void setPuntosDeVida(int numero) {
         puntosDeVida += numero;
-    }
+    }    
 }

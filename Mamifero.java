@@ -3,17 +3,23 @@
  * mamiferos.
  * 
  * @author Javier de Cea Dominguez.
- * @version 16-05-2018
+ * @version 16-05-2018.
  */
 public abstract class Mamifero extends Animal {
+    private int calidadDeRaza;
     
     /**
      * Constructor para objetos de la clase Mamifero.
      * 
      * @param peso El peso del mamifero.
+     * @param calidadDeRaza La calidad de raza que tiene el mamifero.
+     *        Debe ser un numero del 0 al 10.
      */
-    public Mamifero(int peso) {
+    public Mamifero(int peso, int calidadDeRaza) {
         super(peso);
+        if (calidadDeRaza >= 0 && calidadDeRaza <= 10) {
+            this.calidadDeRaza = calidadDeRaza;
+        }
     }
     
     /**
@@ -21,7 +27,12 @@ public abstract class Mamifero extends Animal {
      */
     @Override
     public void comer() {
-        super.comer();
+        if (calidadDeRaza >= 5) {
+            setPuntosDeVida(-calidadDeRaza - 10);
+        }
+        else {
+            setPuntosDeVida(-10); 
+        }
         super.addPeso(2);
     }
     

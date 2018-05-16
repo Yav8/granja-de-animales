@@ -10,9 +10,12 @@ public class Pato extends Ave {
     
     /**
      * Constructor para objetos de la clase Pato.
+     * 
+     * @param modificadoGeneticamente Indica si el animal esta modificado
+     *        geneticamente.
      */
-    public Pato() {
-        super(PESO_INICIAL);
+    public Pato(boolean modificadoGeneticamente) {
+        super(PESO_INICIAL, modificadoGeneticamente);
     }
     
     /**

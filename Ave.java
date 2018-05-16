@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * La clase Ave contiene informacion comun a las aves.
  * 
@@ -5,14 +7,18 @@
  * @version 16-06-2018.
  */
 public abstract class Ave extends Animal {
+    private boolean modificadoGeneticamente;
     
     /**
      * Constructor para objetos de la clase Ave.
      * 
      * @param peso El peso del ave.
+     * @param modificadoGeneticamente Indica si el animal esta modificado
+     *        geneticamente.
      */
-    public Ave(int peso) {
+    public Ave(int peso, boolean modificadoGeneticamente) {
         super(peso);
+        this.modificadoGeneticamente = modificadoGeneticamente;
     }
     
     /**
@@ -20,8 +26,14 @@ public abstract class Ave extends Animal {
      */
     @Override
     public void comer() {
-        super.comer();
         super.addPeso(1);
+        Random aleatorio = new Random();
+        if (modificadoGeneticamente && aleatorio.nextInt(2) < 1) {
+            setPuntosDeVida(-10);         
+        }
+        else {
+            setPuntosDeVida(-10); 
+        }
     }
     
     /**
@@ -36,4 +48,14 @@ public abstract class Ave extends Animal {
      */
     @Override
     public abstract void vacunar();
+    
+    /**
+     * Devuelve si el animal esta modificado geneticamente o no.
+     * 
+     * @return Devuelve un booleano que indica si el animal 
+     * esta modificado genéticamente o no.
+     */
+    public boolean getModificadoGeneticamente() {
+        return modificadoGeneticamente;
+    }
 }

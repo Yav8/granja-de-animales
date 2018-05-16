@@ -11,8 +11,8 @@ public class Vaca extends Mamifero {
     /**
      * Constructor para objetos de la clase Vaca.
      */
-    public Vaca() {
-        super(PESO_INICIAL);
+    public Vaca(int calidadDeRaza) {
+        super(PESO_INICIAL, calidadDeRaza);
     }
     
     /**
@@ -60,6 +60,6 @@ public class Vaca extends Mamifero {
      */
     @Override
     public void vacunar() {
-        super.aumentarPuntosDeVida(30);
+        super.setPuntosDeVida(30);
     }
 }
