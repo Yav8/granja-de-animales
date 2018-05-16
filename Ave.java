@@ -8,6 +8,7 @@ import java.util.Random;
  */
 public abstract class Ave extends Animal {
     private boolean modificadoGeneticamente;
+    private static final int INCREMENTAR_PESO = 1;
     
     /**
      * Constructor para objetos de la clase Ave.
@@ -26,28 +27,15 @@ public abstract class Ave extends Animal {
      */
     @Override
     public void comer() {
-        super.addPeso(1);
+        setPeso(getPeso() + INCREMENTAR_PESO);
         Random aleatorio = new Random();
-        if (modificadoGeneticamente && aleatorio.nextInt(2) < 1) {
-            setPuntosDeVida(-10);         
+        if (modificadoGeneticamente && aleatorio.nextBoolean()) {
+            super.comer();         
         }
         else {
-            setPuntosDeVida(-10); 
+            super.comer(); 
         }
     }
-    
-    /**
-     * Muestra por pantalla el sonido caracteristico de los animales
-     * considerados aves.
-     */
-    @Override
-    public abstract void emitirSonidoCaracteristico();
-    
-    /**
-     * Permite vacunar a los animales considerados aves.
-     */
-    @Override
-    public abstract void vacunar();
     
     /**
      * Devuelve si el animal esta modificado geneticamente o no.

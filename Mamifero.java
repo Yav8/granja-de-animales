@@ -7,6 +7,7 @@
  */
 public abstract class Mamifero extends Animal {
     private int calidadDeRaza;
+    private static final int INCREMENTAR_PESO = 2;
     
     /**
      * Constructor para objetos de la clase Mamifero.
@@ -17,9 +18,7 @@ public abstract class Mamifero extends Animal {
      */
     public Mamifero(int peso, int calidadDeRaza) {
         super(peso);
-        if (calidadDeRaza >= 0 && calidadDeRaza <= 10) {
-            this.calidadDeRaza = calidadDeRaza;
-        }
+        this.calidadDeRaza = calidadDeRaza;
     }
     
     /**
@@ -27,25 +26,10 @@ public abstract class Mamifero extends Animal {
      */
     @Override
     public void comer() {
+        setPeso(getPeso() + INCREMENTAR_PESO);
+        super.comer();
         if (calidadDeRaza >= 5) {
-            setPuntosDeVida(-calidadDeRaza - 10);
+            variaPuntosDeVida(calidadDeRaza);
         }
-        else {
-            setPuntosDeVida(-10); 
-        }
-        super.addPeso(2);
     }
-    
-    /**
-     * Muestra por pantalla el sonido caracteristico de los animales 
-     * considerados mamiferos.
-     */
-    @Override
-    public abstract void emitirSonidoCaracteristico();
-    
-    /**
-     * Permite vacunar a los animales considerados mamiferos.
-     */
-    @Override
-    public abstract void vacunar();
 }

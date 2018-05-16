@@ -1,5 +1,3 @@
-
-
 /**
  * La clase Animal contiene informacion comun asociada a los 
  * diferentes tipos de animales.
@@ -9,9 +7,10 @@
  */
 public abstract class Animal {
     private static final int PUNTOS_DE_VIDA_INICIALES = 100;
-    protected int puntosDeVida;
-    protected int peso;
-
+    private static final int REDUCIR_VIDA_AL_COMER = -10;
+    private int puntosDeVida;
+    private int peso;
+    private String sonidoCaracteristico;
     
     /**
      * Constructor para objetos de la clase Animal.
@@ -23,17 +22,29 @@ public abstract class Animal {
     public Animal(int peso) {
         puntosDeVida = PUNTOS_DE_VIDA_INICIALES;
         this.peso = peso;
+        sonidoCaracteristico = "";
     }
     
     /**
      * Permite al animal comer.
      */
-    public abstract void comer();
+    public void comer() {
+        puntosDeVida += REDUCIR_VIDA_AL_COMER;
+    }
     
     /**
      * El pollo emite su sonido caracteristico.
      */
-    public abstract void emitirSonidoCaracteristico();
+    public void emitirSonidoCaracteristico() {
+        System.out.println(sonidoCaracteristico);
+    }
+    
+    /**
+     * Fija el sonido del animal.
+     */
+    public void setSonidoCaracteristico(String sonido) {
+        sonidoCaracteristico = sonido;
+    }
     
     /**
      * Devuelve el peso del animal.
@@ -46,29 +57,13 @@ public abstract class Animal {
     }
     
     /**
-     * Devuelve los puntos de vida actuales del animal.
-     * 
-     * @return Devuelve un int que contiene los puntos 
-     * de vida del animal.
-     */
-    public int getPuntosDeVida() {
-        return puntosDeVida;
-    }
-    
-    /**
-     * Permite vacunar al animal.
-     */
-    public abstract void vacunar();
-    
-    /**
      * Modifica el peso del animal dependiendo del 
      * numero introducido por parametro.
      * 
-     * @param numero El peso que se sumara o restara 
-     * al actual.
+     * @param nuevoPeso El peso que sustituye al actual.
      */
-    public void addPeso(int numero) {
-        peso += numero;
+    public void setPeso(int nuevoPeso) {
+        peso = nuevoPeso;
     }
     
     /**
@@ -78,7 +73,7 @@ public abstract class Animal {
      * @param numero El numero de puntos de vida que se sumaran 
      * o restaran a los actuales.
      */
-    public void setPuntosDeVida(int numero) {
+    public void variaPuntosDeVida(int numero) {
         puntosDeVida += numero;
     }    
 }

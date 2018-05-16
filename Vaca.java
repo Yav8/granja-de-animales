@@ -5,53 +5,17 @@
  * @author Javier de Cea Dominguez.
  * @version 12-05-2018.
  */
-public class Vaca extends Mamifero {
+public class Vaca extends Mamifero implements Vacunable {
     private static final int PESO_INICIAL = 25;
+    private static final int INCREMENTAR_PUNTOS_DE_VIDA = 30;
+    private static final String SONIDO_CARACTERISTICO = "Muuuu, muuuu";
     
     /**
      * Constructor para objetos de la clase Vaca.
      */
     public Vaca(int calidadDeRaza) {
         super(PESO_INICIAL, calidadDeRaza);
-    }
-    
-    /**
-     * Permite a la vaca comer lo que aumenta en 2 kilogramos 
-     * su peso actual y disminuye sus puntos de vida en 10.
-     */
-    @Override
-    public void comer() {
-        super.comer();
-    }
-    
-    /**
-     * La vaca emite su sonido caracteristico.
-     */
-    @Override
-    public void emitirSonidoCaracteristico() {
-        System.out.println("Muuuu, muuuu");
-    }
-    
-    /**
-     * Devuelve el peso de la vaca.
-     * 
-     * @return Devuelve un int con el 
-     * peso de la vaca.
-     */
-    @Override
-    public int getPeso() {
-        return super.getPeso();
-    }
-    
-    /**
-     * Devuelve los puntos de vida actuales de la vaca.
-     * 
-     * @return Devuelve un int con los puntos de vida 
-     * actuales de la vaca.
-     */
-    @Override
-    public int getPuntosDeVida() {
-        return super.getPuntosDeVida();
+        setSonidoCaracteristico(SONIDO_CARACTERISTICO);
     }
     
     /**
@@ -60,6 +24,6 @@ public class Vaca extends Mamifero {
      */
     @Override
     public void vacunar() {
-        super.setPuntosDeVida(30);
+        variaPuntosDeVida(INCREMENTAR_PUNTOS_DE_VIDA);
     }
 }

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * La clase Granja contiene informacion relacionada con los
  * animales que hay en ella.
@@ -30,10 +28,8 @@ public class Granja {
      * 
      * @param animal El animal que va a ser vacunado.
      */
-    public void vacunar(Animal animal) {
-        if (!animal.getClass().getSimpleName().equals("Pato")) {
-            animal.vacunar();
-        }
+    public void vacunar(Vacunable animal) {
+        animal.vacunar();
     }
     
     /**

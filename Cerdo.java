@@ -5,53 +5,17 @@
  * @author Javier de Cea Dominguez.
  * @version 12-05-2018.
  */
-public class Cerdo extends Mamifero {
+public class Cerdo extends Mamifero implements Vacunable {
     private static final int PESO_INICIAL = 15;
+    private static final int INCREMENTAR_PUNTOS_DE_VIDA = 20;
+    private static final String SONIDO_CARACTERISTICO = "Ñoinq, ñoinq";
     
     /**
      * Constructor para objetos de la clase Cerdo.
      */
     public Cerdo(int calidadDeRaza) {
         super(PESO_INICIAL, calidadDeRaza);
-    }
-    
-    /**
-     * Permite al cerdo comer lo que aumenta en 15 kilogramos 
-     * su peso actual y disminuye sus puntos de vida en 10.
-     */
-    @Override
-    public void comer() {
-        super.comer();
-    }
-    
-    /**
-     * El cerdo emite su sonido caracteristico.
-     */
-    @Override
-    public void emitirSonidoCaracteristico() {
-        System.out.println("Ñoinq, ñoinq");
-    }
-    
-    /**
-     * Devuelve el peso del cerdo.
-     * 
-     * @return Devuelve un int con el 
-     * peso del cerdo.
-     */
-    @Override
-    public int getPeso() {
-        return super.getPeso();
-    }
-    
-    /**
-     * Devuelve los puntos de vida actuales del cerdo.
-     * 
-     * @return Devuelve un int con los puntos de vida 
-     * actuales del cerdo.
-     */
-    @Override
-    public int getPuntosDeVida() {
-        return super.getPuntosDeVida();
+        setSonidoCaracteristico(SONIDO_CARACTERISTICO);
     }
     
     /**
@@ -60,6 +24,6 @@ public class Cerdo extends Mamifero {
      */
     @Override
     public void vacunar() {
-        super.setPuntosDeVida(20);
+        variaPuntosDeVida(INCREMENTAR_PUNTOS_DE_VIDA);
     }
 }
